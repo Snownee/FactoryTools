@@ -20,6 +20,7 @@ public class SignModel extends BlockModel {
     private final ItemDisplayElement main = new ItemDisplayElement();
 
     public SignModel(BlockState state, BlockPos pos) {
+        this.blockState = state;
         this.main.setInvisible(true);
         this.main.setItem(MODEL_MAP.getOrDefault(state.getBlock(), ItemStack.EMPTY));
         this.updateRotation(state);

@@ -18,6 +18,7 @@ public class BlockStateModel extends BlockModel {
     private final float viewRange;
 
     public BlockStateModel(BlockState state, BlockPos pos, float viewRange) {
+        this.blockState = state;
         var model = BlockStateModelManager.get(state);
         this.viewRange = viewRange;
         this.applyModel(model, pos);
@@ -79,6 +80,7 @@ public class BlockStateModel extends BlockModel {
             if (newModel) {
                 this.addElement(element);
             } else {
+                refreshBlockContext(element);
                 element.tick();
             }
         }
